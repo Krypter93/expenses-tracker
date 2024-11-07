@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 const titleSlice = createSlice({
     name: 'title',
-    initialState: '',
+    initialState: '' as string,
     reducers: {
-        addTitle: (state, action) => {
-            state = action.payload
+        addTitle: (state, action: PayloadAction<string>) => {
+            return action.payload
         }
     }
 });
