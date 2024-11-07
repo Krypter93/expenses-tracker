@@ -1,18 +1,28 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { DataState } from "../types/dataType";
+import { PayloadType } from "../types/payloadType";
+
+const initialState: DataState = {
+    title: '',
+    category: '',
+    amount: ''
+}
 
 const dataSlice = createSlice({
     name: 'data',
-    initialState: {
-        title: '',
-        category: '',
-        amount: 0
-    },
+    initialState,
     reducers: {
-        addInfo: (state, action) => {
-            state.title = action.payload.title
-            state.category = action.payload.category
-            state.amount = action.payload.amount
-            localStorage.setItem('expenses', JSON.stringify(state))
+        addInfo: (state, action: PayloadAction<PayloadType>) => {
+            const current = JSON.parse(localStorage.getItem('expenses') || '[]')
+            const update = [...current, action.payload]
+            localStorage.setItem('expenses', JSON.stringify(update))
+            
+            return {...state,
+                    title: action.payload.title,
+                    category: action.payload.category,
+                    amount: action.payload.amount
+            }
+              
         }
     }
 })

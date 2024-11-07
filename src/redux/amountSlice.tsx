@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const amountSlice = createSlice({
     name: 'amount',
-    initialState: 0,
+    initialState: '',
     reducers: {
-        addAmount: (state, action) => {
-            state = action.payload
+        addAmount: (state, action: PayloadAction<string>) => {
+            return action.payload
         }
     }
 })

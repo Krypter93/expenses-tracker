@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
 const catSlice = createSlice({
     name: 'category',
-    initialState: '',
+    initialState: '' as string,
     reducers: {
-        addCategory: (state, action) => {
-            state = action.payload
+        addCategory: (state, action: PayloadAction<string>) => {
+            return action.payload
         }
     }
 });
