@@ -1,5 +1,6 @@
 import { Header } from './pages/Header'
 import { DataForm } from './pages/ExpenseForm'
+import { DataTable } from './pages/DataTable'
 import './App.css'
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
     <>
      <Header />
      <DataForm />
+     {localStorage.getItem('expenses') && <DataTable />}
     </>
   )
 }
