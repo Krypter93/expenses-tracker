@@ -11,9 +11,9 @@ export const DataTable = () => {
         <table className="w-full text-center border-solid border-2 border-slate-400">
                 <thead>
                     <tr>
-                        <th>Expense Name</th>
-                        <th>Category</th>
-                        <th>Amount</th>
+                        <th className="bg-green-700 text-white">Expense Name</th>
+                        <th className="bg-green-700 text-white">Category</th>
+                        <th className="bg-green-700 text-white">Amount</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,8 +26,8 @@ export const DataTable = () => {
                     ))}
                     <tr className="border-solid border-2 border-slate-400">
                         <td></td>
-                        <td className="text-black font-bold">Total</td>
-                        <td className="text-black font-bold">$ {totalAmount()}</td>
+                        <td className="font-bold bg-green-700 text-white">Total</td>
+                        <td className="font-bold bg-green-700 text-white">$ {totalAmount()}</td>
                     </tr>
                 </tbody>
             </table>
