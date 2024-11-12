@@ -5,8 +5,6 @@ import { addCategory } from "../redux/catSlice"
 import { addAmount } from "../redux/amountSlice"
 import { RootState, AppDispatch } from "../redux/store"
 import React from "react"
-import { toggleDarkMode } from "../redux/darkModeSlice"
- 
 
 export const DataForm = () => {
     const dispatch = useDispatch<AppDispatch>()
