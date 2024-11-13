@@ -4,10 +4,10 @@ const amountSlice = createSlice({
     name: 'amount',
     initialState: '',
     reducers: {
-        addAmount: (state, action: PayloadAction<string>) => {
+        addAmount: (_state, action: PayloadAction<string>) => {
             return action.payload
         },
-        cleanAmount: state => ''
+        cleanAmount: () => ''
     }
 })
 

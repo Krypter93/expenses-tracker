@@ -4,10 +4,10 @@ const titleSlice = createSlice({
     name: 'title',
     initialState: '' as string,
     reducers: {
-        addTitle: (state, action: PayloadAction<string>) => {
+        addTitle: (_state, action: PayloadAction<string>) => {
             return action.payload
         },
-        cleanTitle: state => ''
+        cleanTitle: () => ''
     }
 });
 
