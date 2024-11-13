@@ -1,8 +1,8 @@
 import { addInfo } from "../redux/dataSlice"
 import { useSelector, useDispatch } from "react-redux"
-import { addTitle } from "../redux/titleSlice"
-import { addCategory } from "../redux/catSlice"
-import { addAmount } from "../redux/amountSlice"
+import { addTitle, cleanTitle } from "../redux/titleSlice"
+import { addCategory, cleanCategory } from "../redux/catSlice"
+import { addAmount, cleanAmount } from "../redux/amountSlice"
 import { RootState, AppDispatch } from "../redux/store"
 import React from "react"
 
@@ -25,7 +25,14 @@ export const DataForm = () => {
         dispatch(addAmount(e.target.value))
     }
     const handleData = () => {
-        dispatch(addInfo({title: titleState, category: categoryState, amount: amountState}))
+        if (!titleState || !categoryState || !amountState) {
+            alert('Please fill all the fields')
+        } else {
+            dispatch(addInfo({title: titleState, category: categoryState, amount: amountState}))
+            dispatch(cleanTitle())
+            dispatch(cleanCategory())
+            dispatch(cleanAmount())
+        }
     }
     
     return (
@@ -41,7 +48,7 @@ export const DataForm = () => {
                     <h1 className={`ml-0 md:-ml-[685px] ${darkModeState ? 'text-white' : 'text-black'}`}>Amount</h1>
                     <input type="text" placeholder="Enter your expense amount" className="mb-5 -mt-4 p-2" onChange={handleAmountChange} value={amountState}/>
 
-                    <button className={`-mt-2 mb-2 w-24 mx-auto rounded text-white text-center p-1 ${darkModeState ? 'bg-gray-700': 'bg-green-700'} ${darkModeState ? 'hover:bg-gray-800' : 'hover:bg-green-800'}`} onClick={handleData}>Add</button>
+                    <button className={`-mt-2 mb-2 w-24 mx-auto rounded text-white text-center p-1 ${darkModeState ? 'bg-gray-700': 'bg-green-700'} ${darkModeState ? 'hover:bg-gray-800' : 'hover:bg-green-800'}`} onClick={handleData} type="button">Add</button>
                 </form>
             </section>
         </>

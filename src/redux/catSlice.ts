@@ -6,9 +6,10 @@ const catSlice = createSlice({
     reducers: {
         addCategory: (state, action: PayloadAction<string>) => {
             return action.payload
-        }
+        },
+        cleanCategory: state => ''
     }
 });
 
-export const { addCategory } = catSlice.actions
+export const { addCategory, cleanCategory } = catSlice.actions
 export default catSlice.reducer

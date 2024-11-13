@@ -6,9 +6,10 @@ const titleSlice = createSlice({
     reducers: {
         addTitle: (state, action: PayloadAction<string>) => {
             return action.payload
-        }
+        },
+        cleanTitle: state => ''
     }
 });
 
-export const { addTitle } = titleSlice.actions
+export const { addTitle, cleanTitle } = titleSlice.actions
 export default titleSlice.reducer

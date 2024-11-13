@@ -6,9 +6,10 @@ const amountSlice = createSlice({
     reducers: {
         addAmount: (state, action: PayloadAction<string>) => {
             return action.payload
-        }
+        },
+        cleanAmount: state => ''
     }
 })
 
-export const { addAmount } = amountSlice.actions
+export const { addAmount, cleanAmount } = amountSlice.actions
 export default amountSlice.reducer

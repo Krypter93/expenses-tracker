@@ -1,9 +1,10 @@
 import { RootState } from "../redux/store"
 import { totalAmount } from "./service/totalAmount";
-import { useSelector, UseSelector } from "react-redux";
+import { useSelector } from "react-redux";
+import { PayloadType } from "../types/payloadType";
 
 export const DataTable = () => {
-    const dataState = JSON.parse(localStorage.getItem('expenses') || '[]')
+    const dataState =  useSelector((state: RootState) => state.data)
     const darkModeState = useSelector((state: RootState) => state.darkMode.value)
     
     return (
@@ -18,7 +19,7 @@ export const DataTable = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {dataState && dataState.map((item: RootState, index: number) => (
+                    {dataState && dataState.map((item: PayloadType, index: number) => (
                         <tr key={index} className="border-solid border-2 border-slate-400">
                             <td className={`text-xs md:text-base ${darkModeState ? 'text-white' : 'text-gray-800'}`}>{item.title}</td>
                             <td className={`text-xs md:text-base ${darkModeState ? 'text-white' : 'text-gray-800'}`}>{item.category}</td>
